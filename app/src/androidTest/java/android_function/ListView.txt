@@ -1,0 +1,21 @@
+ListView
+- 기본적인 동작은 addView 와 동일
+
+- 어답터
+    - 데이터와 뷰를 짝지어 준다.
+    - 요청시 해당번째 데이터를 준다.
+    - 데이터 변경 되었을 시 갱신
+
+BaseAdapter
+    - ArrayAdapter : 배열 타입
+    - CursorAdapter : 데이터 전용
+    - SimpleAdapter : 정적 XML
+
+
+AddView -> ListView -> RecyclerView
+1. 개발하기 쉽다.
+2. 성능이 좋다.
+
+- 단점
+    - 비효율적이다.
+    - inflate 는 비용이 큰 작업인데 계속 호출한다.
