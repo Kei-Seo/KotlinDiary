@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewDebug
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 class RoomActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +17,9 @@ class RoomActivity : AppCompatActivity() {
 @Entity
 class UserProfile(
 
-    @property
-
+    @PrimaryKey val id: Int,
     @ColumnInfo(name = "last_name")
     val lastName: String,
-
     @ColumnInfo(name = "first_name")
     val firstName: String
 )
