@@ -104,7 +104,7 @@ class ListViewAdapter(
     }
 }
 
-class ViewHolder {
+class   ViewHolder {
     var carImage : ImageView? = null
     var nthCar : TextView? = null
     var nthEngine : TextView? = null
