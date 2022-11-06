@@ -1,2 +1,23 @@
 # KotlinDiary
-취미로 앱개발
+### 취미로 앱개발 일지
+
+#### 04 Context(문맥 = 앱의 흐름)
+
+Application context
+- 하나만 존재
+- 어플리케이션이 살아있는 동안 유지
+
+Activity Context
+- Activity 마다 존재
+- 액티비티가 유지되는 동안에 유지
+- Context 를 구현하고 기능을 추가한게 -> Activity
+
+책 (Application Context)
+    챕터 1 (Activity Context)
+        챕터 1-1
+        챕터 1-2
+
+
+
+
+
