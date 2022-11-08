@@ -15,7 +15,7 @@
         android:theme="@style/Theme.AndroidPractice"
         tools:targetApi="31">
         <activity
-            android:name=".RoomActivity"
+            android:name=".NetworkActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,13 +23,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".SharedPreferenceActivity"
+            android:name=".RoomActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".RecyclerViewActivity"
+            android:name=".SharedPreferenceActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".RecyclerViewActivity"
+            android:exported="true" />
         <activity
             android:name=".ApplicationActivityTwo"
             android:exported="false" />
