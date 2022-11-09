@@ -3,6 +3,12 @@ package com.example.androidpractice
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,8 +40,13 @@ class RetrofitActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful){
                     val studentList = response.body()
-                    studentList!!.forEach {
-                        Log.d("testt", ""+it.name)
+
+                    findViewById<RecyclerView>(R.id.studentRecyclerView).apply {
+                        this.adapter = StudentListRecyclerViewAdapter(
+                            studentList!!,
+                            LayoutInflater.from(this@RetrofitActivity)
+                        )
+                        this.layoutManager = LinearLayoutManager(this@RetrofitActivity)
                     }
                 }
             }
@@ -46,7 +57,80 @@ class RetrofitActivity : AppCompatActivity() {
             }
         })
 
+        findViewById<TextView>(R.id.createStudent).setOnClickListener{
+            val student = HashMap<String,Any>()
+            student.put("name", "홍석")
+            student.put("intro", "홍석")
+            student.put("age", 100)
+            retrofitService.createStudent(student).enqueue(object : Callback<StudentFromServer>{
+
+                override fun onResponse(
+                    call: Call<StudentFromServer>,
+                    response: Response<StudentFromServer>
+                ) {
+                    val student = response.body()
+                    Log.d("testt", "등록한 학생"+student!!.name.toString())
+                }
+
+                override fun onFailure(call: Call<StudentFromServer>, t: Throwable) {
+                    Log.d("testt", "요청 실패")
+                }
+            })
+        }
+        findViewById<TextView>(R.id.easyCreateStudent).setOnClickListener{
+            val student = StudentFromServer(name = "서울", age=200, intro = "welcome to seoul")
+            retrofitService.easyCreateStudent(student).enqueue(object : Callback<StudentFromServer> {
+                override fun onResponse(
+                    call: Call<StudentFromServer>,
+                    response: Response<StudentFromServer>
+                ) {
+                    val student = response.body()
+                    Log.d("testt", "등록한 학생"+student!!.name.toString())
+                }
+
+                override fun onFailure(call: Call<StudentFromServer>, t: Throwable) {
+                    Log.d("testt", "요청 실패")
+                }
+            })
+        }
 
 
+    }
+}
+
+
+class StudentListRecyclerViewAdapter(
+    var studentList : ArrayList<StudentFromServer>,
+    var inflater: LayoutInflater
+
+):RecyclerView.Adapter<StudentListRecyclerViewAdapter.ViewHolder>(){
+
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        val studentName : TextView
+        val studentAge : TextView
+        val studentIntro : TextView
+
+        init {
+            studentName = itemView.findViewById(R.id.student_name)
+            studentAge = itemView.findViewById(R.id.student_age)
+            studentIntro = itemView.findViewById(R.id.student_intro)
+
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = inflater.inflate(R.layout.student_item, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.studentName.text = studentList.get(position).name
+        holder.studentIntro.text = studentList.get(position).intro
+        holder.studentAge.text = studentList.get(position).age.toString()
+
+    }
+
+    override fun getItemCount(): Int {
+        return studentList.size
     }
 }
