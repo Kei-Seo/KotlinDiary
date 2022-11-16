@@ -1,23 +1,12 @@
 # KotlinDiary
+
 ### 취미로 앱개발 일지
 
-#### 04 Context(문맥 = 앱의 흐름)
-
-Application context
-- 하나만 존재
-- 어플리케이션이 살아있는 동안 유지
-
-Activity Context
-- Activity 마다 존재
-- 액티비티가 유지되는 동안에 유지
-- Context 를 구현하고 기능을 추가한게 -> Activity
-
-책 (Application Context)
-    챕터 1 (Activity Context)
-        챕터 1-1
-        챕터 1-2
-
-
-
-
+#### [chapter 04 - Application context](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/04%20-%20Context.txt)
+#### [chapter 13 - ListView](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/13%20-%20ListView.txt)
+#### [chapter 14 - RecyclerView](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/14%20-%20RecyclerView.txt)
+#### [chapter 17 - Database](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/17%20-%20DataBase.txt)
+#### [chapter 18 - ShardPreference](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/18%20-%20ShardPreference.txt)
+#### [chapter 19 - Room](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/19%20-%20Room.txt)
+#### [chapter 20 - Network](https://github.com/Kei-Seo/KotlinDiary/blob/main/KotlinConcept/app/src/androidTest/java/android_function/20%20-%20Network.txt)
 
