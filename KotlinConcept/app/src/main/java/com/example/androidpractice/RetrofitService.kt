@@ -9,6 +9,10 @@ class StudentFromServer(
     constructor(name: String, age: Int, intro: String) : this(0, name , age, intro)
 }
 
+class YoutubeItem(
+    val id : Int, val title : String, val content: String, val video: String, val thumbnail: String
+)
+
 
 interface RetrofitService {
 
@@ -25,5 +29,8 @@ interface RetrofitService {
     fun easyCreateStudent(
         @Body student : StudentFromServer
     ): Call<StudentFromServer>
+
+    @GET("youtube/list/")
+    fun getYoutubeItemList(): Call<ArrayList<YoutubeItem>>
 
 }
